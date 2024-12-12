@@ -28,10 +28,6 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def on_ready():
     print(f"Bot is online as {bot.user}")
 
-# Run Discord bot
-bot.run(os.getenv("DISCORD_BOT_TOKEN"))
-
-
 bot = commands.Bot(command_prefix="/", intents=intents)
 
 @bot.tree.command(name="loona", description="loona")
@@ -202,3 +198,10 @@ async def on_message(message):
         await message.add_reaction("🤔")
 
     await bot.process_commands(message)
+
+
+
+# Run Discord bot
+bot.run(os.getenv("DISCORD_BOT_TOKEN"))
+
+
