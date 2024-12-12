@@ -196,5 +196,5 @@ async def on_message(message):
 
 
 import os
-bot.run(os.getenv("MTMxNTc0OTUzMzY5MDM2ODA5MA.GUX_6y.U2mFEix9fwhomhW0eMWDtIHRAwDW_8p8ighPas")) 
+bot.run(os.getenv("DISCORD_BOT_TOKEN")) 
 
