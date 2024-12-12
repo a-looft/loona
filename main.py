@@ -196,7 +196,7 @@ async def on_message(message):
 
     if matches_keyword(message.content, girlWords):
         print("DEBUG: Matched girlWords")
-        await message.add_reaction("🤔")
+        await message.add_reaction("🙂‍↕️")
 
     await bot.process_commands(message)
 
