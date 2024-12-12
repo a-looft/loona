@@ -1,26 +1,36 @@
 from flask import Flask
+from threading import Thread
 import os
+import discord
+from discord.ext import commands
 
+# Flask app setup
 app = Flask('')
 
 @app.route('/')
 def home():
     return "Bot is alive!"
 
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8080))  # Use Heroku's PORT environment variable
+def run_flask():
+    port = int(os.getenv("PORT", 8080))
     app.run(host='0.0.0.0', port=port)
 
+# Start Flask in a separate thread
+flask_thread = Thread(target=run_flask)
+flask_thread.start()
 
-
-
-import discord
-from discord.ext import commands
-import re
-
+# Discord bot setup
 intents = discord.Intents.default()
-intents.messages = True
 intents.message_content = True
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f"Bot is online as {bot.user}")
+
+# Run Discord bot
+bot.run(os.getenv("DISCORD_BOT_TOKEN"))
+
 
 bot = commands.Bot(command_prefix="/", intents=intents)
 
@@ -192,8 +202,3 @@ async def on_message(message):
         await message.add_reaction("🤔")
 
     await bot.process_commands(message)
-
-
-import os
-bot.run(os.getenv("DISCORD_BOT_TOKEN")) 
-
