@@ -136,7 +136,7 @@ async def on_message(message):
         "itzy", "midzy", "yeji", "lia", "ryujin", "chaeryeong", "yuna",
 
         # Aespa
-        "aespa", "my", "karina", "giselle", "winter", "ningning",
+        "aespa", "karina", "giselle", "winter", "ningning",
 
         # NewJeans
         "newjeans", "minji", "hanni", "danielle", "haerin", "hyein",
