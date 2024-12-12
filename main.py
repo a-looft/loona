@@ -1,17 +1,16 @@
 from flask import Flask
-from threading import Thread
+import os
 
-# server setup
 app = Flask('')
 
 @app.route('/')
 def home():
     return "Bot is alive!"
 
-def run():
-    app.run(host='0.0.0.0', port=8080)
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8080))  # Use Heroku's PORT environment variable
+    app.run(host='0.0.0.0', port=port)
 
-Thread(target=run).start()
 
 
 
